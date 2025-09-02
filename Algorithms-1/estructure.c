@@ -1,6 +1,8 @@
-#include <stdio.h>  // biblioteca para entrada e saída
+#include<stdio.h>
+#include<locale.h>
 
 int main() {
-    printf("Ola, mundo!\n"); // imprime a mensagem na tela
-    return 0; // indica que o programa terminou com sucesso
+  setlocale(LC_ALL, "Portuguese");
+
+  return 0;
 }
