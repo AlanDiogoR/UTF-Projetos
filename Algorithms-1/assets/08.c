@@ -13,7 +13,9 @@ int main() {
   scanf("%d", &n2);
 
   if ( n1 > n2 ) {
-    printf("\n O menor número é : %c", n2);
+    printf("\n O menor número é : %c e o maior : %c", n2, n2);
+  } else {
+    printf("\n O número maior é: %c e o meonor é: %c", n1,n2);
   }
   
 
