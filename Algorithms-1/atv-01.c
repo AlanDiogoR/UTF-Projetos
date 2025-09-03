@@ -1,6 +1,9 @@
-#include <stdio.h> 
+#include <stdio.h>
 #include <math.h>
+#include<locale.h>
+
 int main() {
+  setlocale(LC_ALL, "Portuguese");
 
   int opcao;
   char continuar;
@@ -16,7 +19,7 @@ int main() {
 
     switch (opcao){
       case 1: {
-        //média notas
+        //mï¿½dia notas
         float n1,n2,n3,n4,media;
 
         printf("Informe a primeira nota: ");
@@ -30,10 +33,10 @@ int main() {
 
         media = (n1+n2+n3+n4)/4;
 
-        printf("A média do aluno é: %.2f \n", media);
+        printf("A mï¿½dia do aluno ï¿½: %.2f \n", media);
 
         break;
-      } 
+      }
 
       case 2: {
         //02 area circunferencia
@@ -50,15 +53,15 @@ int main() {
       }
 
       case 3: {
-        //03 tanque 
+        //03 tanque
 
-        float raio, altura, preco, lata, litros, latas, custos, area; 
+        float raio, altura, preco, lata, litros, latas, custos, area;
 
         printf("Informe o raio do tanque em (m): ");
         scanf("%f", &raio);
         printf("Informe a altura do tanque em (m): ");
         scanf("%f", &altura);
-        printf("Informe o preço da lata de tintas em (R$): ");
+        printf("Informe o preï¿½o da lata de tintas em (R$): ");
         scanf("%f", &preco);
 
         area = 2 * M_PI * raio * (raio * altura);
@@ -76,7 +79,7 @@ int main() {
       }
 
       case 4: {
-        //sal final 
+        //sal final
         float horasTrab, horasExtra, horasFalta, salMin, valHora, bruto, inss, salFinal;
 
         printf("Informe as horas trabalhadas: ");
@@ -99,7 +102,7 @@ int main() {
       }
 
       case 5: {
-        // 05 salario familia 
+        // 05 salario familia
 
         float salario, salFamilia;
         int dependentes;
@@ -114,7 +117,7 @@ int main() {
         printf("Salario familia: R$: %.2f", salFamilia);
 
         break;
-        
+
       }
 
       case 6: {
@@ -137,7 +140,7 @@ int main() {
 
       }
 
-      case 7: { 
+      case 7: {
         //07glao comb
 
         float tempo, velocidade, distancia, litros, galoesReais;
@@ -162,8 +165,8 @@ int main() {
 
       }
 
-      case 8: { 
-        //08   distancia pontos 
+      case 8: {
+        //08   distancia pontos
 
         float x1, x2, y1, y2, distancia;
 
@@ -202,7 +205,7 @@ int main() {
       }
 
       default:
-        printf("Questão invalida!\n");
+        printf("Questï¿½o invalida!\n");
     }
 
     printf("\nGostaria de ver outra questao? (s/n): ");
