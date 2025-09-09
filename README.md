@@ -1,7 +1,8 @@
 # UTF-Projetos  
 
 <p align="center">
-  <img src="[[https://upload.wikimedia.org/wikipedia/commons/f/f9/UTFPR_logo.svg](https://pt.m.wikipedia.org/wiki/Ficheiro:UTFPR_logo.svg)](https://pt.m.wikipedia.org/wiki/Ficheiro:UTFPR_logo.svg)" alt="Logotipo UTFPR" width="300"/>
+  <!-- Para exibir o logotipo, adicione o arquivo local: assets/utfpr-logo.png -->
+  <img src="assets/utfpr-logo.png" alt="Logotipo UTFPR" height="120">
 </p>
 
 ---
