@@ -1,4 +1,5 @@
 # UTF-Projetos
+<p align="center">
   <img src="assets/utfpr-logo.png" alt="Logotipo UTFPR" height="120">
 </p>
 
