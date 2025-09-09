@@ -1,7 +1,4 @@
-# UTF-Projetos  
-
-<p align="center" style="background-color:white; display:inline-block; padding:10px; border-radius:8px;">
-  <!-- Para exibir o logotipo, adicione o arquivo local: assets/utfpr-logo.png -->
+# UTF-Projetos
   <img src="assets/utfpr-logo.png" alt="Logotipo UTFPR" height="120">
 </p>
 
