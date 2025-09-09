@@ -1,7 +1,7 @@
 # UTF-Projetos  
 
 <p align="center">
-  <img src="[https://upload.wikimedia.org/wikipedia/commons/7/79/UTFPR_logo.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Fpt.m.wikipedia.org%2Fwiki%2FFicheiro%3AUTFPR_logo.svg&psig=AOvVaw0FIgU6S0dMgxgppw1D2E_3&ust=1757471590745000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJD06KjSyo8DFQAAAAAdAAAAABAE)" alt="UTFPR" width="300"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/UTFPR_logo.svg" alt="Logotipo UTFPR" width="300"/>
 </p>
 
 ---
