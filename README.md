@@ -5,7 +5,7 @@
 </p>
 
 ---
-
+ 
 ## 📖 Sobre o Repositório  
 
 Este repositório contém **exercícios, listas e projetos práticos** desenvolvidos durante o curso de **Tecnologia da Informação** na **Universidade Tecnológica Federal do Paraná (UTFPR)**.  
