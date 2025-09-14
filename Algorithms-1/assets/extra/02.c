@@ -6,7 +6,7 @@ int main()
 {
   setlocale(LC_ALL, "Portuguese");
 
-  printf("\n\t");
+  printf("\n\tolá mundo");
 
   return 0;
 }
