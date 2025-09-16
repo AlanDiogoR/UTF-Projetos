@@ -9,6 +9,7 @@ mensagem “Valor digitado com sucesso”. Do contrário, apresentar a
 mensagem “Valor fora do intervalo permitido”.
 */
 
+
 int main() {
   setlocale(LC_ALL, "Portuguese");
 
@@ -23,7 +24,7 @@ int main() {
   } else {
     printf("\n Valor fora do intervalo!");
   }
-  
+
 
   return 0;
 }
