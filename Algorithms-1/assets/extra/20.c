@@ -12,7 +12,7 @@ int main()
 
   comprimento = 2 * M_PI * raio; // Comprimento da circunferência máxima
   area = M_PI * pow(raio, 2);    // Área do círculo máximo (não da superfície da esfera)
-  volume = (4.0 / 3.0) * PI * pow(raio, 3);
+  volume = (4.0 / 3.0) * M_PI * pow(raio, 3);
 
   printf("\nPara uma esfera com raio %.2lf:\n", raio);
   printf("Comprimento da circunferência máxima: %.2lf\n", comprimento);
