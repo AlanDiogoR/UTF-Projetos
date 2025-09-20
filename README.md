@@ -12,7 +12,7 @@ Este repositório contém **exercícios, listas e projetos práticos** desenvolv
 O objetivo é reunir implementações em linguagem **C** aplicadas aos conteúdos de **lógica de programação, estruturas condicionais, laços de repetição, vetores, funções e projetos aplicados**.  
 
 ---
-
+teste
 ## 📂 Estrutura  
 
 UTF-Projetos/
@@ -46,6 +46,7 @@ UTF-Projetos/
 ---
 
 ## ▶️ Como Executar  
+
 
 1. Clone o repositório:  
    ```bash
