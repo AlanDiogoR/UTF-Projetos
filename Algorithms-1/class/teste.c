@@ -14,6 +14,7 @@ int main()
   soma = 0;
 
   printf("\n\t Valor discreto! teste");
+  printf("\n\t Valor discreto! teste");
 
   for (i = 1; i < 6; i++)
   {
