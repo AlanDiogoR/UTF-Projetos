@@ -1,3 +1,4 @@
+
 /*2. Faça um programa que peça 6 valores inteiros e, depois, apresente-os na
 tela. sem vetor */
 
