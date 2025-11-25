@@ -1,2 +1,15 @@
 /*
 2.Elabore um programa para armazenar 10 produtos (para isso, crie um vetor de produto de 10 posições). Cada produto deve possuir os campos como o do exercício 1. O programa deve pedir os dados dos 10 produtos (um produto por vez). Em seguida, o programa deve apresentar o seguinte menu: “1- Alterar dados do produto; 2-Ver dados do produto; 0 - sair”. Uma vez que o usuário escolha entre 1 ou 2, o programa deve pedir qual produto (entre 0 e 9) o usuário deseja alterar/ver. Se o usuário digitar 1, o programa deverá pedir para ele digitar os novos valores/dados do produto e retornar ao menu inicial. Se o usuário digitar 2, o programa deverá apresentar os dados do produto e voltar ao menu inicial. Isto deve se repetir até que o usuário digite 0.*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define MAX_PRODUTOS 10
+#define MAX_NOME 50
+typedef struct
+{
+  int codigo;
+  char descricao[20];
+  char marca[10];
+  float preco;
+} ProdutoProps;
