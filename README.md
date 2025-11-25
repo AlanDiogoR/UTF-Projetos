@@ -10,6 +10,7 @@
 
 Este repositório é uma coleção de **exercícios, listas e projetos práticos** desenvolvidos como parte da disciplina de **Algoritmos e Programação** (ou similar) no curso de **Engenharia de Software** da **Universidade Tecnológica Federal do Paraná (UTFPR)**.
 
+
 O objetivo principal é documentar e compartilhar implementações em **linguagem C** que abordam os fundamentos da programação estruturada, incluindo:
 
 *   **Lógica de Programação**
