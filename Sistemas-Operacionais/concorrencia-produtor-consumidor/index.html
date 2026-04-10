@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SO — Produtor-Consumidor com Semáforos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="glow glow-a" aria-hidden="true"></div>
+    <div class="glow glow-b" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <header class="hero">
+        <div class="hero-top">
+          <span class="badge">Sistemas operacionais</span>
+          <span class="badge badge-outline">Produtor · Consumidor</span>
+        </div>
+        <h1>Simulação de concorrência</h1>
+        <p class="sub">
+          Buffer compartilhado, semáforos e mutex — sincronização e prevenção de deadlock em tempo real.
+        </p>
+      </header>
+
+      <div class="threads-bar">
+        <div class="chip chip-prod">
+          <span class="chip-dot" aria-hidden="true"></span>
+          3 produtores · P1, P2, P3
+        </div>
+        <div class="chip chip-cons">
+          <span class="chip-dot" aria-hidden="true"></span>
+          2 consumidores · C1, C2
+        </div>
+      </div>
+
+      <div class="panels">
+        <section class="panel panel-buffer">
+          <div class="panel-head">
+            <h2>Buffer circular</h2>
+            <span class="panel-hint">5 posições · recurso compartilhado</span>
+          </div>
+          <div id="buffer-slots" class="buffer-visual" aria-live="polite"></div>
+          <div class="stats">
+            <div class="stat-card">
+              <span class="stat-label">Produzidos</span>
+              <strong id="stat-produced">0</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Consumidos</span>
+              <strong id="stat-consumed">0</strong>
+            </div>
+            <div class="stat-card stat-card-accent">
+              <span class="stat-label">No buffer</span>
+              <strong id="stat-buffer-count">0</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel-sync">
+          <div class="panel-head">
+            <h2>Sincronização</h2>
+            <span class="panel-hint">Semáforos e controles</span>
+          </div>
+
+          <ul class="sem-list">
+            <li class="sem-item sem-empty">
+              <div class="sem-info">
+                <span class="sem-name">empty</span>
+                <span class="sem-desc">Espaços livres no buffer</span>
+              </div>
+              <span class="sem-val" id="sem-empty">5</span>
+            </li>
+            <li class="sem-item sem-full">
+              <div class="sem-info">
+                <span class="sem-name">full</span>
+                <span class="sem-desc">Itens prontos para consumo</span>
+              </div>
+              <span class="sem-val" id="sem-full">0</span>
+            </li>
+            <li class="sem-item sem-mutex">
+              <div class="sem-info">
+                <span class="sem-name">mutex</span>
+                <span class="sem-desc">Exclusão mútua na seção crítica</span>
+              </div>
+              <span class="sem-val sem-val-text" id="sem-mutex">livre</span>
+            </li>
+          </ul>
+
+          <div class="controls">
+            <button type="button" id="btn-start" class="btn btn-primary">
+              <span class="btn-icon">▶</span>
+              Iniciar
+            </button>
+            <button type="button" id="btn-stop" class="btn btn-ghost" disabled>
+              <span class="btn-icon">■</span>
+              Parar
+            </button>
+            <button type="button" id="btn-clear" class="btn btn-ghost">Limpar log</button>
+            <label class="speed">
+              <span class="speed-label">Ritmo</span>
+              <input type="range" id="speed" min="100" max="1200" value="400" />
+              <span class="speed-val" id="speed-val">400 ms</span>
+            </label>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel panel-log">
+        <div class="panel-head">
+          <h2>Log de eventos</h2>
+          <span class="panel-hint">Inserções, remoções e ordem de locks</span>
+        </div>
+        <div class="log-shell">
+          <div class="log-toolbar" aria-hidden="true">
+            <span class="log-dot"></span>
+            <span class="log-dot"></span>
+            <span class="log-dot"></span>
+            <span class="log-title">simulação.log</span>
+          </div>
+          <div id="log" class="log" role="log"></div>
+        </div>
+      </section>
+
+      <aside class="note">
+        <div class="note-icon" aria-hidden="true">◇</div>
+        <div class="note-body">
+          <strong>Prevenção de deadlock</strong>
+          <p>
+            Produtores executam <code>wait(empty)</code> antes de <code>wait(mutex)</code>; consumidores,
+            <code>wait(full)</code> antes do lock do buffer. Essa ordem fixa evita espera circular. O
+            <code>mutex</code> elimina condição de corrida; <code>empty</code> e <code>full</code> coordenam
+            capacidade e itens.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
