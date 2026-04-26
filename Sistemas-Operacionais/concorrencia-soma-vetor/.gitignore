@@ -1,0 +1,19 @@
+# Binários compilados
+somar_vetor
+somar_vetor.exe
+*.o
+*.obj
+
+# Resultados gerados (mantém apenas .gitkeep)
+resultados/*.csv
+resultados/*.png
+
+# Cache Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
