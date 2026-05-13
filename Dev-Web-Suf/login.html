@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acesse sua conta na Horizon Studio.">
+  <title>Login — Horizon Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <a href="index.html" class="logo">Horizon Studio</a>
+    <nav class="menu-principal" aria-label="Navegação principal">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#jogos">Jogos</a></li>
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+        <li><a href="cadastro.html">Cadastrar</a></li>
+        <li><a href="login.html" class="active">Login</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="login" class="secao-login">
+      <h2>Entrar</h2>
+      <form action="index.html" method="get" class="formulario-login">
+        <div class="campo-formulario">
+          <label for="email-login">E-mail</label>
+          <input type="email" id="email-login" name="email" required>
+        </div>
+
+        <div class="campo-formulario">
+          <label for="senha-login">Senha</label>
+          <input type="password" id="senha-login" name="senha" minlength="6" required>
+        </div>
+
+        <button type="submit" class="botao botao-primario">Entrar</button>
+      </form>
+      <p class="texto-cadastro">
+        <a href="cadastro.html">Não tem conta? Cadastre-se</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>&copy; 2026 Horizon Studio. Todos os direitos reservados.</p>
+    <nav class="menu-rodape" aria-label="Navegação do rodapé">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#jogos">Jogos</a></li>
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+        <li><a href="cadastro.html">Cadastrar</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+    <a href="#" id="link-curriculo">Currículo do Desenvolvedor</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Painel administrativo da Horizon Studio.">
+  <title>Admin — Horizon Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <a href="index.html" class="logo">Horizon Studio</a>
+    <nav class="menu-principal" aria-label="Navegação principal">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#jogos">Jogos</a></li>
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+        <li><a href="cadastro.html">Cadastrar</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="admin.html" class="active">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="form-admin" class="secao-form-admin">
+      <h2>Cadastrar Usuário</h2>
+      <form id="formAdmin" class="formulario-admin">
+        <div class="campo-formulario">
+          <label for="adminNome">Nome</label>
+          <input type="text" id="adminNome" name="nome" required>
+        </div>
+
+        <div class="campo-formulario">
+          <label for="adminEmail">E-mail</label>
+          <input type="email" id="adminEmail" name="email" required>
+        </div>
+
+        <div class="acoes-formulario">
+          <button type="button" id="btnCadastrar" class="botao botao-primario">Cadastrar</button>
+          <button type="button" id="btnLimpar" class="botao botao-secundario">Limpar Campos</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="busca-admin" class="secao-busca-admin">
+      <h2>Pesquisar</h2>
+      <div class="campo-busca">
+        <label for="campoBusca" class="rotulo-visualmente-oculto">Buscar usuário</label>
+        <input type="text" id="campoBusca" name="busca" placeholder="Buscar por nome ou e-mail...">
+        <button type="button" id="btnPesquisar" class="botao botao-primario">Pesquisar</button>
+      </div>
+    </section>
+
+    <section id="lista-admin" class="secao-lista-admin">
+      <h2>Usuários Cadastrados</h2>
+      <button type="button" id="btnExcluirTodos" class="botao botao-perigo">Excluir Todos</button>
+      <ul id="listaUsuarios" class="lista-usuarios"></ul>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>&copy; 2026 Horizon Studio. Todos os direitos reservados.</p>
+    <nav class="menu-rodape" aria-label="Navegação do rodapé">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#jogos">Jogos</a></li>
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+        <li><a href="cadastro.html">Cadastrar</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+    <a href="#" id="link-curriculo">Currículo do Desenvolvedor</a>
+  </footer>
+
+  <script src="admin.js" defer></script>
+</body>
+</html>
