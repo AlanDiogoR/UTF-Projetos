@@ -1,0 +1,109 @@
+/* =========================================================
+   CADASTRO.CSS — Estilos exclusivos da página de cadastro
+   ========================================================= */
+
+/* ---------- Container da seção ---------- */
+.secao-cadastro {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(123, 92, 255, 0.18), transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(0, 224, 198, 0.15), transparent 55%),
+    var(--cor-superficie);
+  border-radius: var(--raio);
+  border: 1px solid rgba(123, 92, 255, 0.2);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--sombra);
+
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.25rem;
+}
+
+.secao-cadastro h2 {
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.secao-cadastro h2 i {
+  color: var(--cor-primaria);
+}
+
+.subtitulo-cadastro {
+  text-align: center;
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Formulário (Flexbox) ---------- */
+.formulario-cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.campo-formulario label {
+  font-weight: 600;
+  color: var(--cor-texto);
+  font-size: 0.95rem;
+}
+
+.campo-formulario input {
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  color: var(--cor-texto);
+  background: rgba(15, 18, 38, 0.6);
+  border: 1px solid rgba(123, 92, 255, 0.3);
+  border-radius: var(--raio);
+  padding: 0.7rem 0.9rem;
+  outline: none;
+  transition: border-color var(--transicao), box-shadow var(--transicao),
+              background var(--transicao);
+}
+
+.campo-formulario input::placeholder {
+  color: var(--cor-texto-suave);
+}
+
+.campo-formulario input:focus {
+  border-color: var(--cor-secundaria);
+  background: rgba(15, 18, 38, 0.85);
+  box-shadow: 0 0 0 3px rgba(0, 224, 198, 0.18);
+}
+
+.campo-formulario input:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: var(--cor-perigo);
+}
+
+/* ---------- Botão de envio ---------- */
+.formulario-cadastro .botao {
+  margin-top: 0.5rem;
+  align-self: center;
+  width: 100%;
+  max-width: 260px;
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 720px) {
+  .secao-cadastro {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .formulario-cadastro .botao {
+    max-width: 100%;
+  }
+}

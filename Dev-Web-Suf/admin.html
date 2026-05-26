@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Painel administrativo da Horizon Studio.">
   <title>Admin — Horizon Studio</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="comum/comum.css">
+  <link rel="stylesheet" href="admin/admin.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
   <header class="cabecalho">
@@ -18,45 +22,59 @@
         <li><a href="index.html#contato">Contato</a></li>
         <li><a href="cadastro.html">Cadastrar</a></li>
         <li><a href="login.html">Login</a></li>
-        <li><a href="admin.html" class="active">Admin</a></li>
+        <li><a href="admin.html" class="active"><i class="fa-solid fa-user-shield"></i> Admin</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <section id="form-admin" class="secao-form-admin">
-      <h2>Cadastrar Usuário</h2>
-      <form id="formAdmin" class="formulario-admin">
+      <h2><i class="fa-solid fa-user-plus"></i> Cadastrar Usuário</h2>
+      <p class="subtitulo-admin">
+        Preencha nome e e-mail para adicionar um novo usuário ao painel.
+      </p>
+      <form id="formAdmin" class="formulario-admin" autocomplete="off">
         <div class="campo-formulario">
           <label for="adminNome">Nome</label>
-          <input type="text" id="adminNome" name="nome" required>
+          <input type="text" id="adminNome" name="nome" placeholder="Ex.: Alan Diogo" required>
         </div>
 
         <div class="campo-formulario">
           <label for="adminEmail">E-mail</label>
-          <input type="email" id="adminEmail" name="email" required>
+          <input type="email" id="adminEmail" name="email" placeholder="exemplo@horizonstudio.fake" required>
         </div>
 
         <div class="acoes-formulario">
-          <button type="button" id="btnCadastrar" class="botao botao-primario">Cadastrar</button>
-          <button type="button" id="btnLimpar" class="botao botao-secundario">Limpar Campos</button>
+          <button type="button" id="btnCadastrar" class="botao botao-primario">
+            <i class="fa-solid fa-check"></i> Cadastrar
+          </button>
+          <button type="button" id="btnLimpar" class="botao botao-secundario">
+            <i class="fa-solid fa-eraser"></i> Limpar Campos
+          </button>
         </div>
       </form>
     </section>
 
     <section id="busca-admin" class="secao-busca-admin">
-      <h2>Pesquisar</h2>
+      <h2><i class="fa-solid fa-magnifying-glass"></i> Pesquisar</h2>
       <div class="campo-busca">
         <label for="campoBusca" class="rotulo-visualmente-oculto">Buscar usuário</label>
         <input type="text" id="campoBusca" name="busca" placeholder="Buscar por nome ou e-mail...">
-        <button type="button" id="btnPesquisar" class="botao botao-primario">Pesquisar</button>
+        <button type="button" id="btnPesquisar" class="botao botao-primario">
+          <i class="fa-solid fa-magnifying-glass"></i> Pesquisar
+        </button>
       </div>
     </section>
 
     <section id="lista-admin" class="secao-lista-admin">
-      <h2>Usuários Cadastrados</h2>
-      <button type="button" id="btnExcluirTodos" class="botao botao-perigo">Excluir Todos</button>
-      <ul id="listaUsuarios" class="lista-usuarios"></ul>
+      <div class="cabecalho-lista">
+        <h2><i class="fa-solid fa-users"></i> Usuários Cadastrados</h2>
+        <button type="button" id="btnExcluirTodos" class="botao botao-perigo">
+          <i class="fa-solid fa-trash"></i> Excluir Todos
+        </button>
+      </div>
+      <p id="mensagemLista" class="mensagem-lista">Nenhum usuário cadastrado ainda.</p>
+      <ul id="listaUsuarios" class="lista-usuarios" aria-live="polite"></ul>
     </section>
   </main>
 
@@ -73,9 +91,15 @@
         <li><a href="admin.html">Admin</a></li>
       </ul>
     </nav>
-    <a href="#" id="link-curriculo">Currículo do Desenvolvedor</a>
+    <a href="Curriculo_AlanDiogoR_PT.pdf"
+       id="link-curriculo"
+       target="_blank"
+       rel="noopener"
+       title="Abrir currículo em PDF (nova aba)">
+      Currículo — Alan Diogo Ribeiro de Carvalho
+    </a>
   </footer>
 
-  <script src="admin.js" defer></script>
+  <script src="admin/admin.js" defer></script>
 </body>
 </html>
