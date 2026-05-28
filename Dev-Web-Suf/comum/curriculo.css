@@ -1,0 +1,40 @@
+.pagina-curriculo {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--cor-superficie);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+.pagina-curriculo h1 {
+  color: var(--cor-secundaria);
+}
+
+.pagina-curriculo h2 {
+  margin-top: 1.5rem;
+  color: var(--cor-primaria);
+}
+
+.acoes-curriculo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #111;
+  }
+
+  .pagina-curriculo {
+    box-shadow: none;
+    margin: 0;
+  }
+}

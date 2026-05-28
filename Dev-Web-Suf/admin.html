@@ -6,100 +6,128 @@
   <meta name="description" content="Painel administrativo da Horizon Studio.">
   <title>Admin — Horizon Studio</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="comum/comum.css">
   <link rel="stylesheet" href="admin/admin.css">
   <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
 </head>
 <body>
-  <header class="cabecalho">
-    <a href="index.html" class="logo">Horizon Studio</a>
-    <nav class="menu-principal" aria-label="Navegação principal">
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="index.html#jogos">Jogos</a></li>
-        <li><a href="index.html#sobre">Sobre</a></li>
-        <li><a href="index.html#contato">Contato</a></li>
-        <li><a href="cadastro.html">Cadastrar</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="admin.html" class="active"><i class="fa-solid fa-user-shield"></i> Admin</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section id="form-admin" class="secao-form-admin">
-      <h2><i class="fa-solid fa-user-plus"></i> Cadastrar Usuário</h2>
-      <p class="subtitulo-admin">
-        Preencha nome e e-mail para adicionar um novo usuário ao painel.
+  <div id="gateAdmin" class="gate-admin" role="dialog" aria-modal="true" aria-labelledby="gateTitulo">
+    <form id="formGate" class="gate-admin__card">
+      <h2 id="gateTitulo"><i class="fa-solid fa-lock"></i> Acesso ao painel</h2>
+      <p>
+        Proteção de demonstração (front-end estático). A senha está documentada no README do projeto.
       </p>
-      <form id="formAdmin" class="formulario-admin" autocomplete="off">
-        <div class="campo-formulario">
-          <label for="adminNome">Nome</label>
-          <input type="text" id="adminNome" name="nome" placeholder="Ex.: Alan Diogo" required>
-        </div>
-
-        <div class="campo-formulario">
-          <label for="adminEmail">E-mail</label>
-          <input type="email" id="adminEmail" name="email" placeholder="exemplo@horizonstudio.fake" required>
-        </div>
-
-        <div class="acoes-formulario">
-          <button type="button" id="btnCadastrar" class="botao botao-primario">
-            <i class="fa-solid fa-check"></i> Cadastrar
-          </button>
-          <button type="button" id="btnLimpar" class="botao botao-secundario">
-            <i class="fa-solid fa-eraser"></i> Limpar Campos
-          </button>
-        </div>
-      </form>
-    </section>
-
-    <section id="busca-admin" class="secao-busca-admin">
-      <h2><i class="fa-solid fa-magnifying-glass"></i> Pesquisar</h2>
-      <div class="campo-busca">
-        <label for="campoBusca" class="rotulo-visualmente-oculto">Buscar usuário</label>
-        <input type="text" id="campoBusca" name="busca" placeholder="Buscar por nome ou e-mail...">
-        <button type="button" id="btnPesquisar" class="botao botao-primario">
-          <i class="fa-solid fa-magnifying-glass"></i> Pesquisar
-        </button>
+      <div class="campo-formulario">
+        <label for="gateSenha">Senha</label>
+        <input type="password" id="gateSenha" name="senha" autocomplete="current-password" required>
       </div>
-    </section>
+      <p id="gateErro" class="gate-erro escondida" role="alert" aria-live="polite"></p>
+      <button type="submit" class="botao botao-primario">
+        <i class="fa-solid fa-right-to-bracket"></i> Entrar
+      </button>
+      <a href="index.html" class="botao botao-secundario">Voltar ao site</a>
+    </form>
+  </div>
 
-    <section id="lista-admin" class="secao-lista-admin">
-      <div class="cabecalho-lista">
-        <h2><i class="fa-solid fa-users"></i> Usuários Cadastrados</h2>
-        <button type="button" id="btnExcluirTodos" class="botao botao-perigo">
-          <i class="fa-solid fa-trash"></i> Excluir Todos
-        </button>
-      </div>
-      <p id="mensagemLista" class="mensagem-lista">Nenhum usuário cadastrado ainda.</p>
-      <ul id="listaUsuarios" class="lista-usuarios" aria-live="polite"></ul>
-    </section>
-  </main>
+  <div id="appAdmin" class="escondida" aria-hidden="true">
+    <header class="cabecalho">
+      <a href="index.html" class="logo">Horizon Studio</a>
+      <nav class="menu-principal" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#jogos">Jogos</a></li>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="cadastro.html">Cadastrar</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="admin.html" class="active"><i class="fa-solid fa-user-shield"></i> Admin</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <footer class="rodape">
-    <p>&copy; 2026 Horizon Studio. Todos os direitos reservados.</p>
-    <nav class="menu-rodape" aria-label="Navegação do rodapé">
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="index.html#jogos">Jogos</a></li>
-        <li><a href="index.html#sobre">Sobre</a></li>
-        <li><a href="index.html#contato">Contato</a></li>
-        <li><a href="cadastro.html">Cadastrar</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="admin.html">Admin</a></li>
-      </ul>
-    </nav>
-    <a href="Curriculo_AlanDiogoR_PT.pdf"
-       id="link-curriculo"
-       target="_blank"
-       rel="noopener"
-       title="Abrir currículo em PDF (nova aba)">
-      Currículo — Alan Diogo Ribeiro de Carvalho
-    </a>
-  </footer>
+    <main>
+      <section id="form-admin" class="secao-form-admin">
+        <h2><i class="fa-solid fa-user-plus"></i> Cadastrar Usuário</h2>
+        <p class="subtitulo-admin">
+          Preencha nome e e-mail para adicionar um novo usuário ao painel.
+        </p>
+        <form id="formAdmin" class="formulario-admin" autocomplete="off">
+          <div class="campo-formulario">
+            <label for="adminNome">Nome</label>
+            <input type="text" id="adminNome" name="nome" placeholder="Ex.: Alan Diogo" required>
+          </div>
 
+          <div class="campo-formulario">
+            <label for="adminEmail">E-mail</label>
+            <input type="email" id="adminEmail" name="email" placeholder="exemplo@horizonstudio.fake" required>
+          </div>
+
+          <div class="acoes-formulario">
+            <button type="button" id="btnCadastrar" class="botao botao-primario">
+              <i class="fa-solid fa-check"></i> Cadastrar
+            </button>
+            <button type="button" id="btnLimpar" class="botao botao-secundario">
+              <i class="fa-solid fa-eraser"></i> Limpar Campos
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section id="busca-admin" class="secao-busca-admin">
+        <h2><i class="fa-solid fa-magnifying-glass"></i> Pesquisar</h2>
+        <div class="campo-busca">
+          <label for="campoBusca" class="rotulo-visualmente-oculto">Buscar usuário</label>
+          <input type="text" id="campoBusca" name="busca" placeholder="Buscar por nome ou e-mail...">
+          <button type="button" id="btnPesquisar" class="botao botao-primario">
+            <i class="fa-solid fa-magnifying-glass"></i> Pesquisar
+          </button>
+        </div>
+      </section>
+
+      <section id="lista-admin" class="secao-lista-admin">
+        <div class="cabecalho-lista">
+          <h2><i class="fa-solid fa-users"></i> Usuários Cadastrados</h2>
+          <button type="button" id="btnExcluirTodos" class="botao botao-perigo">
+            <i class="fa-solid fa-trash"></i> Excluir Todos
+          </button>
+        </div>
+        <p id="mensagemLista" class="mensagem-lista">Nenhum usuário cadastrado ainda.</p>
+        <ul id="listaUsuarios" class="lista-usuarios" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <p>&copy; 2026 Horizon Studio. Todos os direitos reservados.</p>
+      <nav class="menu-rodape" aria-label="Navegação do rodapé">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#jogos">Jogos</a></li>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="cadastro.html">Cadastrar</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="admin.html">Admin</a></li>
+        </ul>
+      </nav>
+      <a href="Curriculo_AlanDiogoR_PT.pdf"
+         id="link-curriculo"
+         target="_blank"
+         rel="noopener noreferrer"
+         title="Abrir currículo em PDF (nova aba)">
+        Currículo — Alan Diogo Ribeiro de Carvalho
+      </a>
+      <a href="curriculo.html" class="link-curriculo-html">Versão HTML do currículo</a>
+    </footer>
+  </div>
+
+  <script src="admin/gate.js" defer></script>
   <script src="admin/admin.js" defer></script>
 </body>
 </html>

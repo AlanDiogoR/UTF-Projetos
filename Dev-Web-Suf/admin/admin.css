@@ -2,6 +2,58 @@
    ADMIN.CSS — Estilos exclusivos da página administrativa
    ========================================================= */
 
+/* ---------- Portão de acesso (demonstração) ---------- */
+.gate-admin {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(15, 18, 38, 0.92);
+}
+
+.gate-admin__card {
+  width: min(420px, 100%);
+  padding: 2rem;
+  background: var(--cor-superficie);
+  border: 1px solid rgba(123, 92, 255, 0.35);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.gate-admin__card h2 {
+  color: var(--cor-primaria);
+}
+
+.gate-admin__card p {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+.gate-admin__card label {
+  font-weight: 500;
+}
+
+.gate-admin__card input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(123, 92, 255, 0.35);
+  border-radius: var(--raio);
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+}
+
+.gate-erro {
+  color: var(--cor-perigo);
+  font-size: 0.9rem;
+}
+
 /* ---------- Padrão das seções ---------- */
 .secao-form-admin,
 .secao-busca-admin,

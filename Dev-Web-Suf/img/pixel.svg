@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Capa ilustrativa do jogo Pixel Rush">
+  <rect width="640" height="360" fill="#0f1226"/>
+  <g fill="#7b5cff">
+    <rect x="80" y="200" width="48" height="48"/><rect x="128" y="152" width="48" height="96"/>
+    <rect x="176" y="120" width="48" height="128"/><rect x="224" y="168" width="48" height="80"/>
+    <rect x="272" y="136" width="48" height="112"/><rect x="320" y="184" width="48" height="64"/>
+  </g>
+  <g fill="#00e0c6">
+    <rect x="400" y="160" width="32" height="32"/><rect x="440" y="128" width="32" height="64"/>
+    <rect x="480" y="96" width="32" height="96"/><rect x="520" y="144" width="32" height="48"/>
+  </g>
+  <text x="32" y="48" fill="#f2f3ff" font-family="Segoe UI, sans-serif" font-size="28" font-weight="700">Pixel Rush</text>
+  <text x="32" y="78" fill="#b8bbd9" font-family="Segoe UI, sans-serif" font-size="16">Plataforma · Horizon Studio</text>
+</svg>

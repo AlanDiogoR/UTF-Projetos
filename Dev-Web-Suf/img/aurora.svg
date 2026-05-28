@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Capa ilustrativa do jogo Aurora Drift">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b1f3a"/>
+      <stop offset="50%" stop-color="#3d2a7a"/>
+      <stop offset="100%" stop-color="#00e0c6"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#sky)"/>
+  <ellipse cx="320" cy="280" rx="220" ry="40" fill="#0f1226" opacity="0.6"/>
+  <path d="M80 220 Q200 120 320 200 T560 180" stroke="#7b5cff" stroke-width="4" fill="none" opacity="0.9"/>
+  <text x="32" y="48" fill="#f2f3ff" font-family="Segoe UI, sans-serif" font-size="28" font-weight="700">Aurora Drift</text>
+  <text x="32" y="78" fill="#b8bbd9" font-family="Segoe UI, sans-serif" font-size="16">RPG · Horizon Studio</text>
+</svg>
