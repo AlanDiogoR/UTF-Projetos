@@ -1,0 +1,76 @@
+Avaliação diagnóstica - Linguagem C e Portugol
+1. O que faz o seguinte trecho de código? int x = 10;
+printf("%d", x++);
+a) Imprime 11
+b) Imprime 10
+c) Erro de compilação
+d) Nenhuma das anteriores
+2. (Portugol) O que será exibido ao executar o código abaixo? inteiro x <- 5
+x <- x + 3 escreva(x)
+a) 5
+b) 8
+c) 3
+d) Erro
+
+3. Escreva um programa que leia dois números e imprima a soma.
+4. (Portugol) Crie um algoritmo que leia o nome do usuário e exiba uma saudação.
+5. Qual o resultado da expressão: 3 * (2 + 4)?
+a) 18
+b) 24
+c) 14
+d) 3
+6. (Portugol) Qual a estrutura de repetição correta para repetir um bloco 10 vezes?
+a) para
+b) enquanto
+c) se
+d) escolha
+
+7. Qual a função da diretiva #include <stdio.h>?
+a) Incluir bibliotecas do sistema
+b) Definir variáveis
+c) Criar funções
+d) Repetir blocos
+
+8. Explique o uso da função scanf.
+9. O que faz a instrução return em uma função?
+a) Finaliza o programa
+b) Retorna um valor
+c) Cria uma variável
+d) Nenhuma das anteriores
+
+10. (Portugol) Para que serve o comando escreva?
+a) Para declarar variáveis
+b) Para ler dados
+c) Para imprimir na tela
+d) Para repetir blocos
+
+11. (Portugol) Faça um algoritmo que calcule a média de duas notas.
+12. O que faz o operador '=='?
+a) Atribuição
+b) Comparação
+c) Subtração
+
+d) Divisão
+13. Qual tipo de dado usamos para números com casas decimais?
+a) int
+b) char
+c) float
+d) bool
+
+14. (Portugol) Qual comando usamos para ler dados do usuário?
+a) escreva
+b) leia
+c) se
+d) enquanto
+
+15. Crie uma função que receba um número e retorne se ele é par ou ímpar.
+16) Escreva um programa em C que leia um número inteiro e verifique se ele é positivo,
+negativo ou zero usando estruturas condicionais.
+17) (Portugol) Faça um algoritmo que utilize uma estrutura de repetição para contar de 1
+a 10 e exibir os valores na tela.
+18) Explique com exemplo como um ponteiro pode ser usado para alterar o valor de
+uma variável em uma função.
+19) (Portugol) Escreva um algoritmo que leia um número e informe se ele é par ou
+ímpar.
+20) Escreva um programa que use um laço for para exibir os números de 1 a 5 e calcule
+a soma total desses números.
