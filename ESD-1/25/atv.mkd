@@ -1,0 +1,20 @@
+Leia um número e informe se ele é positivo.
+Leia um número e informe se ele é negativo ou não.
+Leia um número inteiro e informe se é par ou ímpar.
+Leia a idade de uma pessoa e informe se é maior ou menor de idade.
+Leia dois números e informe qual é o maior.
+Leia dois números e informe se eles são iguais ou diferentes.
+Leia uma nota e informe se o aluno está aprovado (nota >= 7).
+Leia uma nota e informe se o aluno está aprovado ou reprovado.
+Leia um número e informe se ele é zero ou diferente de zero.
+Leia um número e informe se ele é múltiplo de 5.
+Leia um número e informe se ele está entre 10 e 20.
+Leia três notas e informe se a média é maior ou igual a 6.
+Leia um número e classifique como positivo, negativo ou zero.
+Leia dois números e informe o menor deles.
+Leia a idade e informe se pode votar (idade >= 16).
+Leia a idade e informe se o voto é obrigatório (idade >= 18 && idade < 70).
+Leia um salário e informe se é maior que 2000.
+Leia a temperatura e informe se está frio (< 20) ou quente (>= 20).
+Leia um número e informe se ele é divisível por 3 e por 2 ao mesmo tempo.
+Leia um ano e informe se a pessoa pode dirigir (idade >= 18 – adapte com idade).
