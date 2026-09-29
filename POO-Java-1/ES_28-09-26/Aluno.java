@@ -1,4 +1,4 @@
-public class Aluno extends Pessoa {//Tipo Abstrato de Dados
+public class Aluno extends Pessoa implements IAluno{//Tipo Abstrato de Dados
 
 	private int ra;
 	private String curso;
@@ -7,6 +7,13 @@ public class Aluno extends Pessoa {//Tipo Abstrato de Dados
 
 public void printDados(){
 	System.out.println("\n\t printDados da classe-filha Aluno");
+	System.out.println("\tRA: "+ra);
+	System.out.println("\tCURSO: "+curso);
+	System.out.println("\tCPF: "+getCpf());
+	System.out.println("\tNOME: "+getNome());
+	System.out.println("\tRUA: "+getEnder().getRua());
+	System.out.println("\tNUMERO: "+getEnder().getNum());
+	System.out.println("\tCIDADE: "+getEnder().getLocal().getCidade());
 }
 		
 //========================================

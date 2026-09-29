@@ -2,7 +2,7 @@ import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class Leitura{
+public class Leitura implements Visao{
 	
 	public String entDados(String rotulo){
 		
@@ -21,5 +21,9 @@ public class Leitura{
 		
 		return ret;
 	
+	}
+
+	public void impDados(String texto){
+		System.out.println(texto);
 	}
 }

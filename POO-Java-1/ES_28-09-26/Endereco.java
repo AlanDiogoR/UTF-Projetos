@@ -1,7 +1,8 @@
-public class Endereco{
+public class Endereco implements IEndereco{
 
 	private String rua = "";
 	private int num = 0;
+	private Local local = new Local();
 	
 	public String getRua(){
 		return rua;
@@ -17,6 +18,14 @@ public class Endereco{
 	
 	public void setNum(int num){
 		this.num = num;
+	}
+
+	public Local getLocal(){
+		return local;
+	}
+
+	public void setLocal(Local local){
+		this.local = local;
 	}
 
 }

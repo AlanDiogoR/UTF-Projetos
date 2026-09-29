@@ -3,15 +3,17 @@ public class TstHer{
 	public static void main(String arg[]){//classLoader
 		
 		Leitura l = new Leitura();
+		Visao visao = l;
 	
 		Aluno a1 = new Aluno();
 		
-		Pessoa p1 = new Pessoa();
-		Pessoa p2 = new Aluno(); //Coersão
+		ImpDados p1 = new Pessoa();
+		ImpDados p2 = new Aluno(); // interface ImpDados, objeto da filha
 		
 		//a1.setCpf(16);
 		
-		p2.setRa(13);
+		((IAluno)p2).setRa(13);
+		visao.impDados("\nRA via interface IAluno: "+((IAluno)p2).getRa());
 		
 		
 		p1.printDados();

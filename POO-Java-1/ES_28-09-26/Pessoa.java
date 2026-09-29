@@ -1,4 +1,4 @@
-public class Pessoa{//Tipo Abstrato de Dados
+public class Pessoa implements IPessoa{//Tipo Abstrato de Dados
 
 	protected int codP;
 	
@@ -46,6 +46,15 @@ public int impDados(int k){
 
 public void printDados(){
 	System.out.println("\n\t printDados da classe-mãe Pessoa");
+	System.out.println("\tCPF: "+cpf);
+	System.out.println("\tNOME: "+nome);
+	if(ender != null){
+		System.out.println("\tRUA: "+ender.getRua());
+		System.out.println("\tNUMERO: "+ender.getNum());
+		if(ender.getLocal() != null){
+			System.out.println("\tCIDADE: "+ender.getLocal().getCidade());
+		}
+	}
 }	
 	
 //====================================	
