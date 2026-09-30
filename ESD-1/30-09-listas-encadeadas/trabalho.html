@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Listas encadeadas — Estrutura de Dados 1</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2cm 2cm 2cm 3cm;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    color: #1a1a1a;
+    font-family: "Liberation Serif", "Times New Roman", Times, serif;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .cover {
+    page-break-after: always;
+    min-height: 250mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cover img {
+    width: 92px;
+    height: auto;
+    margin-top: 4mm;
+  }
+
+  .cover .univ {
+    margin-top: 6mm;
+    font-size: 13pt;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .cover .campus,
+  .cover .curso {
+    margin-top: 1mm;
+    font-size: 12pt;
+  }
+
+  .cover .disc {
+    margin-top: 22mm;
+    font-size: 12pt;
+  }
+
+  .cover h1 {
+    margin: 14mm 12mm 0;
+    font-size: 18pt;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+  }
+
+  .cover .tipo {
+    margin-top: 6mm;
+    font-size: 12pt;
+  }
+
+  .cover .people {
+    margin-top: auto;
+    margin-bottom: 16mm;
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+
+  .cover .place {
+    margin-bottom: 6mm;
+    font-size: 12pt;
+  }
+
+  h2 {
+    font-size: 14pt;
+    margin: 0 0 4mm;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 12pt;
+    margin: 6mm 0 2mm;
+    font-weight: 700;
+  }
+
+  p { margin: 0 0 3.2mm; text-align: justify; }
+
+  .sec { page-break-inside: auto; }
+
+  ol.passos { margin: 2mm 0 4mm 6mm; padding: 0; }
+  ol.passos li { margin: 0 0 2mm; text-align: justify; }
+
+  pre {
+    font-family: "Liberation Mono", "Courier New", monospace;
+    font-size: 9pt;
+    line-height: 1.35;
+    background: #f4f4f4;
+    border: 0.2mm solid #ccc;
+    padding: 3mm 4mm;
+    margin: 2mm 0 4mm;
+    white-space: pre-wrap;
+  }
+
+  .figura {
+    margin: 3mm 0 5mm;
+    page-break-inside: avoid;
+  }
+
+  .figura .legenda {
+    font-size: 10pt;
+    text-align: center;
+    margin-top: 2mm;
+  }
+
+  .cadeia, .nos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2mm;
+    flex-wrap: wrap;
+    margin: 2mm 0;
+    font-family: "Liberation Sans", Arial, sans-serif;
+    font-size: 10pt;
+  }
+
+  .no {
+    display: flex;
+    border: 0.4mm solid #222;
+  }
+
+  .no span {
+    min-width: 18mm;
+    padding: 1.5mm 2.5mm;
+    text-align: center;
+  }
+
+  .no span + span { border-left: 0.3mm solid #222; }
+
+  .seta { font-weight: 700; }
+
+  .rotulo {
+    font-family: "Liberation Sans", Arial, sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    min-width: 22mm;
+  }
+
+  table.ref { width: 100%; border-collapse: collapse; }
+  .ref p {
+    padding-left: 1.25cm;
+    text-indent: -1.25cm;
+    margin: 0 0 3mm;
+    text-align: justify;
+  }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <img src="utfpr-logo.png" alt="Logotipo da UTFPR">
+  <div class="univ">Universidade Tecnológica Federal do Paraná</div>
+  <div class="campus">Câmpus Cornélio Procópio</div>
+  <div class="curso">Curso de Engenharia de Software</div>
+
+  <div class="disc">Disciplina: Estrutura de Dados 1</div>
+  <h1>LISTAS ENCADEADAS</h1>
+  <div class="tipo">Trabalho escrito</div>
+
+  <div class="people">
+    Integrante<br>
+    Alan Diogo Ribeiro de Carvalho<br><br>
+    Professora<br>
+    Monique Oliveira
+  </div>
+  <div class="place">Cornélio Procópio<br>Setembro de 2026</div>
+</section>
+
+<section class="sec">
+  <h2>1 Introdução</h2>
+  <p>Na disciplina de Estrutura de Dados 1, o estudo de ponteiros em C mostrou que uma variável pode guardar o endereço de outra e que, por meio desse endereço, é possível ler e alterar o conteúdo apontado. A lista encadeada é a primeira estrutura em que esse mecanismo deixa de ser um exercício isolado e passa a organizar uma sequência de dados.</p>
+  <p>Em um vetor, os elementos ficam em posições vizinhas de memória e o acesso é feito por índice. Na lista encadeada, cada elemento fica em um bloco próprio, obtido com alocação dinâmica, e a ordem da sequência é dada por ponteiros. O primeiro elemento é alcançado por um ponteiro de início. Os demais são alcançados seguindo o campo que aponta para o próximo nó.</p>
+  <p>Este trabalho explica o que é uma lista encadeada, por que ela é usada, qual conceito já estudado sustenta essa estrutura, como um nó é organizado e como um valor é inserido no início da lista. O exemplo está escrito em C, na mesma linguagem das aulas de ponteiros. O foco é a lista simplesmente encadeada, em que cada nó conhece apenas o sucessor.</p>
+</section>
+
+<section class="sec">
+  <h2>2 Desenvolvimento</h2>
+
+  <h3>2.1 O que são listas encadeadas</h3>
+  <p>Uma lista encadeada é uma sequência de nós ligados por ponteiros. Cada nó guarda um dado e o endereço do nó seguinte. O último nó não possui sucessor: o ponteiro dele recebe o valor <em>NULL</em>, que marca o fim da lista. Quando a lista está vazia, o próprio ponteiro de início vale <em>NULL</em>.</p>
+  <p>A posição física dos nós na memória não precisa ser consecutiva. O nó que guarda o valor 10 pode estar longe do nó que guarda o valor 20. A ordem lógica 10, depois 20, existe porque o campo de ligação do primeiro aponta para o segundo. Por isso a lista é chamada de encadeada: a cadeia é feita de endereços, não de vizinhança na memória.</p>
+  <p>Há variações. Na lista simplesmente encadeada, a ligação segue um único sentido. Na lista duplamente encadeada, cada nó também aponta para o anterior. Na lista circular, o último nó aponta de volta para o primeiro. O procedimento pedido neste trabalho, inserir no início, é descrito sobre a lista simplesmente encadeada, que é a forma mais direta de aplicar ponteiros.</p>
+
+  <div class="figura">
+    <pre>inicio → [ 10 | prox ] → [ 20 | prox ] → [ 30 | prox ] → NULL</pre>
+    <div class="legenda">Figura 1 — Lista simplesmente encadeada com três nós.</div>
+  </div>
+
+  <h3>2.2 Por que usar listas encadeadas</h3>
+  <p>O vetor resolve bem o acesso direto: o elemento da posição <em>i</em> é localizado em tempo constante. O custo aparece quando a quantidade de dados muda ou quando a inserção ocorre no começo. Para colocar um valor novo na primeira posição de um vetor, todos os elementos já armazenados precisam ser deslocados uma casa para a direita. Se o vetor foi criado com tamanho fixo e enche, é preciso alocar outro bloco e copiar o conteúdo.</p>
+  <p>A lista encadeada inverte esse compromisso. Inserir ou remover no início não desloca os nós que já existem: basta ajustar ponteiros. A quantidade de elementos cresce e diminui um nó por vez, com <em>malloc</em> e <em>free</em>, sem reservar de antemão um tamanho máximo. Isso é útil quando o programa não sabe quantos itens chegarão, como em uma fila de atendimento, no histórico de uma edição ou em uma sequência que só é percorrida do começo ao fim.</p>
+  <p>O uso tem preço. Não há índice. Para chegar ao décimo elemento, o programa percorre os nove anteriores, seguindo <em>prox</em>. Cada nó também gasta memória extra com o ponteiro de ligação, e os nós espalhados pela memória aproveitam pior a cache do processador do que um vetor contíguo. A lista é a estrutura adequada quando a operação frequente é inserir ou remover nas pontas e a travessia é sequencial. O vetor continua melhor quando o programa precisa saltar para uma posição qualquer.</p>
+
+  <h3>2.3 Conceito já estudado e aplicado na lista</h3>
+  <p>O conceito aplicado na lista encadeada é o ponteiro. Nas aulas de ponteiros, uma variável como <em>int *p</em> guarda o endereço de um inteiro. O operador <em>&amp;</em> obtém o endereço, e o operador <em>*</em> acessa o valor que está nesse endereço. Também foi visto que uma função só altera a variável do chamador se receber o endereço dela. Receber uma cópia do valor não muda o original.</p>
+  <p>Na lista, esse mesmo mecanismo vira a estrutura. O campo <em>prox</em> é um ponteiro para outro nó. O ponteiro <em>inicio</em> guarda o endereço do primeiro nó. Percorrer a lista é repetir a leitura de <em>prox</em> até encontrar <em>NULL</em>. Alocar um nó com <em>malloc</em> devolve um endereço, que só pode ser guardado em um ponteiro.</p>
+  <p>A inserção no início usa o caso em que o ponteiro precisa ser alterado dentro de uma função. O ponteiro <em>lista</em> está em <em>main</em>. A função <em>inserirInicio</em> precisa fazer esse ponteiro passar a apontar para o nó novo. Se a função recebesse apenas uma cópia de <em>lista</em>, a cópia mudaria e <em>main</em> continuaria com o endereço antigo. Por isso o parâmetro é <em>No **inicio</em>: um ponteiro para o ponteiro de início. A atribuição <em>*inicio = novo</em> grava o endereço novo na variável do chamador. É o mesmo raciocínio de passar <em>int *p</em> para uma função modificar o inteiro apontado, agora aplicado ao ponteiro que representa a lista.</p>
+
+  <h3>2.4 Estrutura de um nó</h3>
+  <p>O nó é o registro que representa um elemento da lista. No exemplo deste trabalho ele guarda um inteiro e o endereço do sucessor. Em C, isso é uma estrutura autorreferenciada: o tipo <em>No</em> contém um ponteiro para <em>No</em>.</p>
+  <pre>typedef struct No {
+    int valor;
+    struct No *prox;
+} No;</pre>
+  <p>O campo <em>valor</em> é a informação do elemento. Aqui ele é um <em>int</em> para manter o exemplo curto. Em outro problema poderia ser uma nota, um nome ou outra estrutura. O campo <em>prox</em> não guarda o próximo valor: guarda o endereço do próximo nó. Quando <em>prox</em> vale <em>NULL</em>, aquele nó é o último.</p>
+  <p>O nó não contém a lista inteira. Ele conhece apenas o próprio dado e o elo seguinte. A lista, como um todo, é o ponteiro para o primeiro nó mais a cadeia formada pelos campos <em>prox</em>. Dois papéis ficam separados: o nó carrega um elemento; o ponteiro de início indica onde a sequência começa.</p>
+
+  <div class="figura">
+    <pre>+--------+------+
+| valor  | prox |
++--------+------+</pre>
+    <div class="legenda">Figura 2 — Campos de um nó: dado e endereço do sucessor.</div>
+  </div>
+
+  <h3>2.5 Como inserir um valor no início</h3>
+  <p>Inserir no início coloca o novo elemento antes do atual primeiro nó e atualiza o ponteiro de início. O restante da lista não é percorrido e nenhum valor já armazenado é copiado. A operação tem quatro passos.</p>
+  <ol class="passos">
+    <li>Alocar um nó novo com <em>malloc(sizeof(No))</em>. Se a alocação falhar, o ponteiro devolvido é <em>NULL</em> e a inserção deve ser interrompida.</li>
+    <li>Gravar o valor informado no campo <em>valor</em> desse nó.</li>
+    <li>Fazer <em>prox</em> do nó novo apontar para o início atual. Se a lista estava vazia, esse endereço é <em>NULL</em> e o nó novo já nasce como último. Se a lista tinha elementos, o antigo primeiro nó passa a ser o segundo.</li>
+    <li>Fazer o ponteiro de início apontar para o nó novo. A partir daí, quem percorre a lista a partir de <em>inicio</em> encontra primeiro o valor recém-inserido.</li>
+  </ol>
+  <p>A ordem dos passos 3 e 4 não pode ser invertida. O endereço do antigo primeiro nó só está guardado em <em>*inicio</em>. Se esse ponteiro for substituído antes de o nó novo copiá-lo, a cadeia antiga fica sem referência e a lista perde os elementos que já continha.</p>
+
+  <div class="figura">
+    <pre>antes:  inicio → [ 20 | prox ] → [ 30 | prox ] → NULL
+
+depois: inicio → [ 10 | prox ] → [ 20 | prox ] → [ 30 | prox ] → NULL</pre>
+    <div class="legenda">Figura 3 — Inserção do valor 10 no início de uma lista que já continha 20 e 30.</div>
+  </div>
+
+  <p>A função abaixo recebe o endereço do ponteiro de início e o valor a inserir. O programa de demonstração começa com a lista vazia e insere 30, depois 20 e depois 10. Como cada inserção ocorre no início, a impressão fica <em>inicio -&gt; [10] -&gt; [20] -&gt; [30] -&gt; NULL</em>.</p>
+
+  <pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct No {
+    int valor;
+    struct No *prox;
+} No;
+
+void inserirInicio(No **inicio, int valor) {
+    No *novo = malloc(sizeof(No));
+
+    if (novo == NULL) {
+        printf("Falha ao alocar memoria.\n");
+        return;
+    }
+
+    novo-&gt;valor = valor;
+    novo-&gt;prox = *inicio;
+    *inicio = novo;
+}
+
+void imprimir(No *inicio) {
+    No *atual = inicio;
+
+    printf("inicio -&gt; ");
+
+    while (atual != NULL) {
+        printf("[%d] -&gt; ", atual-&gt;valor);
+        atual = atual-&gt;prox;
+    }
+
+    printf("NULL\n");
+}
+
+int main(void) {
+    No *lista = NULL;
+
+    inserirInicio(&amp;lista, 30);
+    inserirInicio(&amp;lista, 20);
+    inserirInicio(&amp;lista, 10);
+
+    imprimir(lista);
+    return 0;
+}</pre>
+
+  <p>Na primeira chamada, <em>lista</em> vale <em>NULL</em>. O nó de valor 30 aponta para <em>NULL</em> e <em>lista</em> passa a apontar para ele. Na segunda, o nó de valor 20 aponta para o nó 30. Na terceira, o nó de valor 10 aponta para o nó 20. O ponteiro <em>lista</em>, em <em>main</em>, acompanha essas trocas porque a função recebeu <em>&amp;lista</em>.</p>
+</section>
+
+<section class="sec">
+  <h2>3 Conclusão</h2>
+  <p>A lista encadeada guarda uma sequência fora da contiguidade de um vetor. Cada elemento é um nó, e a ordem existe porque cada nó aponta para o próximo. O ponteiro, conceito já exercitado em C, é o que torna essa ligação possível: ele guarda endereços, permite percorrer a cadeia e, quando passado por endereço, permite que uma função atualize o início da lista no chamador.</p>
+  <p>Usar a lista compensa quando o programa insere ou remove nas pontas e ainda não conhece a quantidade final de elementos. O acesso por posição deixa de ser direto, e cada nó carrega o custo do ponteiro <em>prox</em>. Inserir no início é a operação mais simples dessa estrutura: aloca-se o nó, copia-se o início atual para <em>prox</em> e só então o início passa a apontar para o nó novo. Feito nessa ordem, o valor entra na frente da lista e os elementos anteriores permanecem encadeados.</p>
+</section>
+
+<section class="sec ref">
+  <h2>Referências</h2>
+  <p>CORMEN, Thomas H.; LEISERSON, Charles E.; RIVEST, Ronald L.; STEIN, Clifford. <strong>Algoritmos:</strong> teoria e prática. 3. ed. Rio de Janeiro: Elsevier, 2012.</p>
+  <p>SCHILDT, Herbert. <strong>C completo e total.</strong> 3. ed. São Paulo: Pearson Makron Books, 1997.</p>
+  <p>TENENBAUM, Aaron M.; LANGSAM, Yedidyah; AUGENSTEIN, Moshe J. <strong>Estruturas de dados usando C.</strong> São Paulo: Pearson Makron Books, 1995.</p>
+  <p>ZIVIANI, Nivio. <strong>Projeto de algoritmos:</strong> com implementações em Pascal e C. 3. ed. São Paulo: Cengage Learning, 2011.</p>
+</section>
+
+</body>
+</html>
