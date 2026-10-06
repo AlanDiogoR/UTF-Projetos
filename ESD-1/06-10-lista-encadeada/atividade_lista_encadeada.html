@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atividade ESD - Lista Encadeada</title>
+  <style>
+    @page { size: A4; margin: 2cm; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      line-height: 1.5;
+      font-size: 12pt;
+      margin: 0;
+    }
+    h1 { text-align: center; font-size: 18pt; margin-bottom: 2mm; }
+    .sub { text-align: center; margin: 0 0 8mm; }
+    h2 { font-size: 14pt; margin: 8mm 0 3mm; }
+    p { margin: 0 0 3mm; }
+    ol { margin: 0 0 5mm 5mm; }
+    .bloco-codigo {
+      background: #0d1117;
+      color: #f8f8f2;
+      border-radius: 8px;
+      padding: 4mm;
+      border: 1px solid #30363d;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 9.5pt;
+      white-space: pre-wrap;
+    }
+    .arquivo { font-weight: bold; margin: 5mm 0 2mm; }
+  </style>
+</head>
+<body>
+  <h1>ATIVIDADE - LISTA ENCADEADA (ESD)</h1>
+  <p class="sub">Disciplina: Estrutura de Dados 1</p>
+
+  <h2>Enunciado resolvido</h2>
+  <ol>
+    <li>Struct do nó com inteiro e ponteiro para próximo nó.</li>
+    <li>Função para inicializar lista vazia.</li>
+    <li>Função para inserir no início da lista.</li>
+    <li>Uso solicitado: <strong>Lista* l; l = inicializa(); insere(l, 10); insere(l, 20);</strong></li>
+    <li>Função para imprimir todos os elementos.</li>
+    <li>Função que retorna 1 se vazia e 0 caso contrário.</li>
+    <li>Função que retorna quantidade de elementos.</li>
+    <li>Função que retorna a soma dos valores.</li>
+    <li>Função que retorna ponteiro do nó buscado ou NULL.</li>
+    <li>Função que retorna o maior valor da lista.</li>
+  </ol>
+
+  <p class="arquivo">Arquivo: atividade_lista_encadeada.c</p>
+  <div class="bloco-codigo">#include &lt;limits.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct no {
+    int valor;
+    struct no *prox;
+} No;
+
+typedef struct lista {
+    No *inicio;
+} Lista;
+
+Lista *inicializa(void) {
+    Lista *l = (Lista *)malloc(sizeof(Lista));
+    if (l == NULL) {
+        return NULL;
+    }
+    l-&gt;inicio = NULL;
+    return l;
+}
+
+int insere(Lista *l, int valor) {
+    No *novo;
+    if (l == NULL) {
+        return 0;
+    }
+    novo = (No *)malloc(sizeof(No));
+    if (novo == NULL) {
+        return 0;
+    }
+    novo-&gt;valor = valor;
+    novo-&gt;prox = l-&gt;inicio;
+    l-&gt;inicio = novo;
+    return 1;
+}
+
+void imprime(const Lista *l) {
+    No *p;
+    if (l == NULL) {
+        printf("Lista invalida.\\n");
+        return;
+    }
+    p = l-&gt;inicio;
+    printf("Lista: ");
+    while (p != NULL) {
+        printf("%d ", p-&gt;valor);
+        p = p-&gt;prox;
+    }
+    printf("\\n");
+}
+
+int vazia(const Lista *l) {
+    return (l == NULL || l-&gt;inicio == NULL) ? 1 : 0;
+}
+
+int quantidade(const Lista *l) {
+    int qtd = 0;
+    No *p;
+    if (l == NULL) {
+        return 0;
+    }
+    p = l-&gt;inicio;
+    while (p != NULL) {
+        qtd++;
+        p = p-&gt;prox;
+    }
+    return qtd;
+}
+
+int soma(const Lista *l) {
+    int total = 0;
+    No *p;
+    if (l == NULL) {
+        return 0;
+    }
+    p = l-&gt;inicio;
+    while (p != NULL) {
+        total += p-&gt;valor;
+        p = p-&gt;prox;
+    }
+    return total;
+}
+
+No *busca(const Lista *l, int valor) {
+    No *p;
+    if (l == NULL) {
+        return NULL;
+    }
+    p = l-&gt;inicio;
+    while (p != NULL) {
+        if (p-&gt;valor == valor) {
+            return p;
+        }
+        p = p-&gt;prox;
+    }
+    return NULL;
+}
+
+int maior(const Lista *l) {
+    int maiorValor;
+    No *p;
+    if (vazia(l)) {
+        return INT_MIN;
+    }
+    p = l-&gt;inicio;
+    maiorValor = p-&gt;valor;
+    p = p-&gt;prox;
+    while (p != NULL) {
+        if (p-&gt;valor &gt; maiorValor) {
+            maiorValor = p-&gt;valor;
+        }
+        p = p-&gt;prox;
+    }
+    return maiorValor;
+}</div>
+</body>
+</html>
