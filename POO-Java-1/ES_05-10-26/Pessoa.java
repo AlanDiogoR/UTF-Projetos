@@ -14,9 +14,14 @@ public class Pessoa{
 // THROWS (com 's') --> AVISO: POSSO lançar um Objt. do tipo "tal"
 // THROW (sem 's') --> ORDEM: LANCE um OBjto. do tipo "tal"
 
-	public void setCpf(int cpf)throws CpfPeqException{
+	public void setCpf(int cpf)throws CpfPeqException, CpfGrdException{
 		if(cpf >= 0){
-			this.cpf = cpf;
+			if(cpf <= 100){
+				this.cpf = cpf;
+			}
+			else{
+				throw new CpfGrdException();
+			}
 		}
 		else{
 			throw new CpfPeqException();
@@ -26,12 +31,15 @@ public class Pessoa{
 	
 //===============================================
 	
-	public void setNome(String nome)throws NomeInvalidoException{
-		if(nome != null && !nome.trim().isEmpty()){
+	public void setNome(String nome) throws NomeInvalidoException, NomePeqException{
+		if(nome == null || nome.trim().isEmpty()){
+			throw new NomeInvalidoException();
+		}
+		else if(nome.length() > 5){
 			this.nome = nome;
 		}
 		else{
-			throw new NomeInvalidoException();
+			throw new NomePeqException();
 		}
 	}
 
