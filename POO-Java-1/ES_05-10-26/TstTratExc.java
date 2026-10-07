@@ -27,6 +27,10 @@ public class TstTratExc{
 
 		catch(NomePeqException npe){
 			npe.impErroNomePeq();
+		}
+
+		catch(NomeInvalidoException nie){
+			nie.impErroNomeInvalido();
 		}		
 		
 		

@@ -31,8 +31,11 @@ public class Pessoa{
 	
 //===============================================
 	
-	public void setNome(String nome) throws NomePeqException{
-		if(nome.length() > 5){
+	public void setNome(String nome) throws NomeInvalidoException, NomePeqException{
+		if(nome == null || nome.trim().isEmpty()){
+			throw new NomeInvalidoException();
+		}
+		else if(nome.length() > 5){
 			this.nome = nome;
 		}
 		else{
