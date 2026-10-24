@@ -1,0 +1,264 @@
+@startuml
+' Alan Diogo Ribeiro de Carvalho - Projeto Pessoal POO - Estacionamento (Entrega Parcial) - RA 2809311
+skinparam monochrome true
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam defaultFontName Arial
+skinparam defaultFontColor black
+skinparam ArrowColor black
+skinparam ClassBorderColor black
+skinparam ClassBackgroundColor white
+skinparam linetype ortho
+skinparam nodesep 40
+skinparam ranksep 50
+hide empty members
+
+title <size:20><b>Alan Diogo Ribeiro de Carvalho (RA 2809311) - Estacionamento</b></size>
+
+interface Tarifavel <<interface>> {
+  + TOLERANCIA_MINUTOS : int = 15 {static}
+  + calcularTarifa(minutos : int) : double
+  + calcularTarifa(minutos : int, diaria : boolean) : double
+}
+note right of Tarifavel
+  Sobrecarga: calcularTarifa(int)
+  e calcularTarifa(int, boolean)
+end note
+
+abstract class Veiculo {
+  - placa : String
+  - modelo : String
+  - cor : String
+  - horaEntrada : LocalDateTime
+  - proprietario : Cliente
+  + getPlaca() : String
+  + setPlaca(placa : String) : void
+  + getModelo() : String
+  + setModelo(modelo : String) : void
+  + getCor() : String
+  + setCor(cor : String) : void
+  + getHoraEntrada() : LocalDateTime
+  + setHoraEntrada(horaEntrada : LocalDateTime) : void
+  + getProprietario() : Cliente
+  + setProprietario(proprietario : Cliente) : void
+  + getTipoVaga() : String {abstract}
+  + toString() : String
+}
+
+class Carro {
+  - numPortas : int
+  - tipoCarroceria : String
+  + getNumPortas() : int
+  + setNumPortas(numPortas : int) : void
+  + getTipoCarroceria() : String
+  + setTipoCarroceria(tipoCarroceria : String) : void
+  + getTipoVaga() : String
+  + calcularTarifa(minutos : int) : double
+  + calcularTarifa(minutos : int, diaria : boolean) : double
+  + toString() : String
+}
+
+class Moto {
+  - cilindradas : int
+  - temBau : boolean
+  + getCilindradas() : int
+  + setCilindradas(cilindradas : int) : void
+  + isTemBau() : boolean
+  + setTemBau(temBau : boolean) : void
+  + getTipoVaga() : String
+  + calcularTarifa(minutos : int) : double
+  + calcularTarifa(minutos : int, diaria : boolean) : double
+  + toString() : String
+}
+
+class Caminhonete {
+  - capacidadeCargaKg : double
+  - cabineDupla : boolean
+  + getCapacidadeCargaKg() : double
+  + setCapacidadeCargaKg(capacidadeCargaKg : double) : void
+  + isCabineDupla() : boolean
+  + setCabineDupla(cabineDupla : boolean) : void
+  + getTipoVaga() : String
+  + calcularTarifa(minutos : int) : double
+  + calcularTarifa(minutos : int, diaria : boolean) : double
+  + toString() : String
+}
+note "Reflexividade: this.atributo nos setters\ne nos Controles (//Reflexividade)" as NR
+note bottom of Caminhonete
+  Sobrescrita: toString() e
+  calcularTarifa(...) nas 3 filhas
+  (tarifa diferente por tipo)
+end note
+
+class Cliente {
+  - nome : String
+  - telefone : String
+  + getNome() : String
+  + setNome(nome : String) : void
+  + getTelefone() : String
+  + setTelefone(telefone : String) : void
+  + toString() : String
+}
+
+class Vaga {
+  - numero : int
+  - tipoVaga : String
+  - ocupada : boolean
+  + getNumero() : int
+  + setNumero(numero : int) : void
+  + getTipoVaga() : String
+  + setTipoVaga(tipoVaga : String) : void
+  + isOcupada() : boolean
+  + setOcupada(ocupada : boolean) : void
+  + toString() : String
+}
+
+class Ticket {
+  - codigo : int
+  - veiculo : Veiculo
+  - vaga : Vaga
+  - entrada : LocalDateTime
+  - saida : LocalDateTime
+  - valor : double
+  + getCodigo() : int
+  + setCodigo(codigo : int) : void
+  + getVeiculo() : Veiculo
+  + setVeiculo(veiculo : Veiculo) : void
+  + getVaga() : Vaga
+  + setVaga(vaga : Vaga) : void
+  + getEntrada() : LocalDateTime
+  + setEntrada(entrada : LocalDateTime) : void
+  + getSaida() : LocalDateTime
+  + setSaida(saida : LocalDateTime) : void
+  + getValor() : double
+  + setValor(valor : double) : void
+  + toString() : String
+}
+
+class VagaIndisponivelException {
+  + VagaIndisponivelException()
+}
+class PlacaInvalidaException {
+  + PlacaInvalidaException()
+}
+class Exception
+
+class Leitura {
+  - teclado : Scanner
+  + entDados(rotulo : String) : String
+  + entInteiro(rotulo : String) : int
+  + entReal(rotulo : String) : double
+}
+
+class ControleMenu {
+  - leitura : Leitura
+  + setLeitura(leitura : Leitura) : void
+  + exibirMenu() : int
+  + mostrarMensagem(mensagem : String) : void
+}
+
+class ControleCliente {
+  - clientes : ArrayList<Cliente>
+  - leitura : Leitura
+  + setLeitura(leitura : Leitura) : void
+  + cadastrarCliente() : Cliente
+  + buscarPorNome(nome : String) : Cliente
+  + listarClientes() : void
+}
+
+class ControleVeiculo {
+  - veiculos : ArrayList<Veiculo>
+  - leitura : Leitura
+  - controleCliente : ControleCliente
+  + setLeitura(leitura : Leitura) : void
+  + setControleCliente(controleCliente : ControleCliente) : void
+  + cadastrarVeiculo() : void
+  + consultarPlaca() : void
+  + validarPlaca(placa : String) : void <<throws PlacaInvalidaException>>
+  + buscarPorPlaca(placa : String) : Veiculo <<throws PlacaInvalidaException>>
+  + listarVeiculos() : void
+}
+
+class ControleVaga {
+  - vagas : ArrayList<Vaga>
+  - leitura : Leitura
+  + setLeitura(leitura : Leitura) : void
+  + cadastrarVaga() : void
+  + buscarVagaLivre(tipoVaga : String) : Vaga <<throws VagaIndisponivelException>>
+  + listarVagas() : void
+  + listarVagas(livres : boolean) : void
+}
+
+class ControleTicket {
+  - tickets : ArrayList<Ticket>
+  - leitura : Leitura
+  - controleVeiculo : ControleVeiculo
+  - controleVaga : ControleVaga
+  - proximoCodigo : int
+  - formato : DateTimeFormatter
+  + setLeitura(leitura : Leitura) : void
+  + setControleVeiculo(c : ControleVeiculo) : void
+  + setControleVaga(c : ControleVaga) : void
+  - lerDataHora(rotulo : String) : LocalDateTime
+  + registrarEntrada() : void
+  + registrarSaida() : void
+  - buscarTicketAberto(veiculo : Veiculo) : Ticket
+  + listarTickets() : void
+}
+
+class Principal {
+  + main(args : String[]) : void {static}
+}
+note right of Principal
+  menu switch/case (opcao lida pelo ControleMenu):
+  1 Cliente  2 Veiculo  3 Vaga
+  4 Entrada  5 Saida  6 Buscar placa
+  7-11 Relatorios  0 Sair
+  try/catch das excecoes proprias nos
+  Controles (sem multicatch)
+end note
+
+' Heranca
+Veiculo <|-- Carro
+Veiculo <|-- Moto
+Veiculo <|-- Caminhonete
+
+' Interface
+Tarifavel <|.. Carro
+Tarifavel <|.. Moto
+Tarifavel <|.. Caminhonete
+
+' Associacoes
+Veiculo "0..*" --> "1" Cliente : proprietario
+Ticket "0..*" --> "1" Veiculo : veiculo
+Ticket "0..*" --> "1" Vaga : vaga
+
+' Excecoes
+Exception <|-- VagaIndisponivelException
+Exception <|-- PlacaInvalidaException
+
+' Controle
+Principal ..> ControleMenu
+ControleMenu ..> Leitura
+Principal ..> ControleCliente
+ControleVeiculo ..> ControleCliente
+Principal ..> ControleVeiculo
+Principal ..> ControleVaga
+Principal ..> ControleTicket
+ControleCliente o--> "0..*" Cliente
+ControleVeiculo o--> "0..*" Veiculo
+ControleVaga o--> "0..*" Vaga
+ControleTicket o--> "0..*" Ticket
+ControleTicket ..> ControleVeiculo
+ControleTicket ..> PlacaInvalidaException : <<catch>>
+ControleTicket ..> VagaIndisponivelException : <<catch>>
+ControleTicket ..> Tarifavel
+ControleTicket ..> ControleVaga
+ControleVeiculo ..> PlacaInvalidaException : <<throws>>
+ControleVaga ..> VagaIndisponivelException : <<throws>>
+ControleCliente ..> Leitura
+ControleVeiculo ..> Leitura
+ControleVaga ..> Leitura
+ControleTicket ..> Leitura
+@enduml
