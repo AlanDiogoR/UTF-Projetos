@@ -24,6 +24,6 @@ Teste roteirizado: `qa/entrada-teste.txt` → `qa/saida-teste.txt` (todas as op�
 | 18 | RF05 saída: ≤15 min = 0; tarifa por tipo; diária via calcularTarifa(int, boolean); vaga liberada | Moto 10 min = R$ 0,00; Carro SUV 150 min = R$ 21,00; Moto diária 2940 min = R$ 54,00; vaga volta a LIVRE | PASS |
 | 19 | RF07/RF08 placa inexistente/vazia/repetida → PlacaInvalidaException | opção 6 "NAO0000", entrada "XXX0000", placa vazia e repetida → mensagem do catch | PASS |
 | 20 | Sem SGBD, sem login, sem GUI, sem validação de documento | ArrayList em memória; validarPlaca só checa vazia/repetida | PASS |
-| 21 | Diagrama PNG/PDF fundo branco, linhas pretas, nome no topo, igual ao código | diagrama-classes.png/.pdf (monochrome); inclui ControleMenu, sets, Reflexividade | PASS |
+| 21 | Diagrama PNG/PDF fundo branco, linhas pretas, nome no topo, igual ao código | diagrama-classes.asta (Astah Professional 12) + PNG/PDF exportados do Astah, fundo branco; inclui ControleMenu, sets, Reflexividade | PASS |
 
 Pendências para o Alan (não são falhas): prazo da Parcial não publicado; confirmar com o professor se a classe `Leitura` (E/S) e o uso de `ArrayList`/`LocalDateTime` são aceitos; conferir o enunciado no Moodle antes de enviar (sujeito a alterações).
